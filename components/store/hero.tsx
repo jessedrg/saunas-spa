@@ -15,44 +15,44 @@ export function Hero({ locale }: HeroProps) {
   const texts: Record<string, { tag: string; title: string; subtitle: string; cta: string; stats: { value: string; label: string }[] }> = {
     es: {
       tag: 'Bienestar Premium',
-      title: 'SaunaSpa.io\npara tu hogar',
-      subtitle: 'Instalación profesional. Garantía 5 años. Presupuesto sin compromiso.',
+      title: 'Sauna Spa\npara tu hogar',
+      subtitle: 'Garantía 5 años. Presupuesto sin compromiso.',
       cta: 'Ver Catálogo',
       stats: [
-        { value: '2.000+', label: 'Instalaciones' },
+        { value: '2.000+', label: 'Clientes' },
         { value: '4.9', label: 'Valoración' },
         { value: '5 años', label: 'Garantía' },
       ]
     },
     en: {
       tag: 'Premium Wellness',
-      title: 'SaunaSpa.io\nfor your home',
-      subtitle: 'Professional installation. 5 year warranty. Free quote.',
+      title: 'Sauna Spa\nfor your home',
+      subtitle: '5 year warranty. Free quote.',
       cta: 'View Catalog',
       stats: [
-        { value: '2,000+', label: 'Installations' },
+        { value: '2,000+', label: 'Customers' },
         { value: '4.9', label: 'Rating' },
         { value: '5 years', label: 'Warranty' },
       ]
     },
     de: {
       tag: 'Premium Wellness',
-      title: 'SaunaSpa.io\nfür Ihr Zuhause',
-      subtitle: 'Professionelle Installation. 5 Jahre Garantie. Kostenloses Angebot.',
+      title: 'Sauna Spa\nfür Ihr Zuhause',
+      subtitle: '5 Jahre Garantie. Kostenloses Angebot.',
       cta: 'Katalog Ansehen',
       stats: [
-        { value: '2.000+', label: 'Installationen' },
+        { value: '2.000+', label: 'Kunden' },
         { value: '4.9', label: 'Bewertung' },
         { value: '5 Jahre', label: 'Garantie' },
       ]
     },
     fr: {
       tag: 'Bien-être Premium',
-      title: 'SaunaSpa.io\npour votre maison',
-      subtitle: 'Installation professionnelle. Garantie 5 ans. Devis gratuit.',
+      title: 'Sauna Spa\npour votre maison',
+      subtitle: 'Garantie 5 ans. Devis gratuit.',
       cta: 'Voir Catalogue',
       stats: [
-        { value: '2 000+', label: 'Installations' },
+        { value: '2 000+', label: 'Clients' },
         { value: '4.9', label: 'Note' },
         { value: '5 ans', label: 'Garantie' },
       ]

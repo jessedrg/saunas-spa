@@ -65,11 +65,11 @@ export default function DynamicPage({ params }: PageProps) {
   const relatedCategories = CATEGORIES.filter(c => c.slug !== category?.slug).slice(0, 3);
   
   // Translations
-  const texts: Record<string, { from: string; quote: string; features: string; related: string; warranty: string; install: string; delivery: string }> = {
-    es: { from: 'Desde', quote: 'Solicitar Presupuesto', features: 'Características', related: 'Otros productos', warranty: 'Garantía 5 años', install: 'Instalación incluida', delivery: 'Entrega rápida' },
-    en: { from: 'From', quote: 'Request Quote', features: 'Features', related: 'Other products', warranty: '5 year warranty', install: 'Installation included', delivery: 'Fast delivery' },
-    de: { from: 'Ab', quote: 'Angebot Anfordern', features: 'Eigenschaften', related: 'Andere Produkte', warranty: '5 Jahre Garantie', install: 'Installation inklusive', delivery: 'Schnelle Lieferung' },
-    fr: { from: 'À partir de', quote: 'Demander un Devis', features: 'Caractéristiques', related: 'Autres produits', warranty: 'Garantie 5 ans', install: 'Installation incluse', delivery: 'Livraison rapide' },
+  const texts: Record<string, { from: string; quote: string; features: string; related: string; warranty: string; delivery: string }> = {
+    es: { from: 'Desde', quote: 'Solicitar Presupuesto', features: 'Características', related: 'Otros productos', warranty: 'Garantía 5 años', delivery: 'Entrega rápida' },
+    en: { from: 'From', quote: 'Request Quote', features: 'Features', related: 'Other products', warranty: '5 year warranty', delivery: 'Fast delivery' },
+    de: { from: 'Ab', quote: 'Angebot Anfordern', features: 'Eigenschaften', related: 'Andere Produkte', warranty: '5 Jahre Garantie', delivery: 'Schnelle Lieferung' },
+    fr: { from: 'À partir de', quote: 'Demander un Devis', features: 'Caractéristiques', related: 'Autres produits', warranty: 'Garantie 5 ans', delivery: 'Livraison rapide' },
   };
   const t = texts[validLocale] || texts.es;
 
@@ -85,7 +85,7 @@ export default function DynamicPage({ params }: PageProps) {
               {/* Content */}
               <div>
                 <span className="inline-block text-xs tracking-widest text-neutral-400 uppercase mb-6">
-                  SaunaSpa.io
+                  Sauna Spa
                 </span>
                 <h1 className="text-4xl md:text-5xl font-light text-neutral-900 leading-tight mb-6">
                   {catName}
@@ -139,7 +139,7 @@ export default function DynamicPage({ params }: PageProps) {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {[
                 { title: t.warranty, desc: 'Cobertura completa en todos los productos' },
-                { title: t.install, desc: 'Equipo técnico profesional' },
+                { title: 'Calidad Premium', desc: 'Materiales de primera calidad' },
                 { title: t.delivery, desc: 'Entrega en toda España' },
               ].map((feature, i) => (
                 <div key={i} className="flex items-start gap-4">

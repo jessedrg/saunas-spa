@@ -28,7 +28,7 @@ export function Footer({ locale }: FooterProps) {
           {/* Brand */}
           <div className="md:col-span-2">
             <Link href={`/${locale === 'en' ? '' : locale}`} className="text-lg font-light text-neutral-900">
-              SaunaSpa.io
+              Sauna Spa
             </Link>
             <p className="text-sm text-neutral-500 mt-4 max-w-xs leading-relaxed">
               {t.desc}
@@ -66,7 +66,7 @@ export function Footer({ locale }: FooterProps) {
         {/* Bottom */}
         <div className="mt-16 pt-8 border-t border-neutral-200 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-xs text-neutral-400">
-            © {new Date().getFullYear()} SaunaSpa.io
+            © {new Date().getFullYear()} Sauna Spa
           </p>
           <div className="flex items-center gap-6">
             <Link href={`/${locale === 'en' ? '' : locale + '/'}privacidad`} className="text-xs text-neutral-400 hover:text-neutral-600 transition-colors">

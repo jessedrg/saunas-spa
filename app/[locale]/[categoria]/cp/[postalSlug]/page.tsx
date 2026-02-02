@@ -49,10 +49,10 @@ export default function PostalCodePage({ params }: PageProps) {
     .slice(0, 6);
 
   const t: Record<string, Record<string, string>> = {
-    es: { from: 'Desde', quote: 'Presupuesto Gratis', warranty: '5 años garantía', install: 'Instalación incluida', delivery: 'Entrega rápida', nearby: 'Zonas cercanas', otherProducts: 'Otros productos', viewAll: 'Ver catálogo' },
-    en: { from: 'From', quote: 'Free Quote', warranty: '5 year warranty', install: 'Installation included', delivery: 'Fast delivery', nearby: 'Nearby areas', otherProducts: 'Other products', viewAll: 'View catalog' },
-    de: { from: 'Ab', quote: 'Kostenloses Angebot', warranty: '5 Jahre Garantie', install: 'Installation inklusive', delivery: 'Schnelle Lieferung', nearby: 'Nahe Gebiete', otherProducts: 'Andere Produkte', viewAll: 'Katalog ansehen' },
-    fr: { from: 'À partir de', quote: 'Devis Gratuit', warranty: 'Garantie 5 ans', install: 'Installation incluse', delivery: 'Livraison rapide', nearby: 'Zones proches', otherProducts: 'Autres produits', viewAll: 'Voir catalogue' },
+    es: { from: 'Desde', quote: 'Presupuesto Gratis', warranty: '5 años garantía', quality: 'Calidad premium', delivery: 'Entrega rápida', nearby: 'Zonas cercanas', otherProducts: 'Otros productos', viewAll: 'Ver catálogo' },
+    en: { from: 'From', quote: 'Free Quote', warranty: '5 year warranty', quality: 'Premium quality', delivery: 'Fast delivery', nearby: 'Nearby areas', otherProducts: 'Other products', viewAll: 'View catalog' },
+    de: { from: 'Ab', quote: 'Kostenloses Angebot', warranty: '5 Jahre Garantie', quality: 'Premium Qualität', delivery: 'Schnelle Lieferung', nearby: 'Nahe Gebiete', otherProducts: 'Andere Produkte', viewAll: 'Katalog ansehen' },
+    fr: { from: 'À partir de', quote: 'Devis Gratuit', warranty: 'Garantie 5 ans', quality: 'Qualité premium', delivery: 'Livraison rapide', nearby: 'Zones proches', otherProducts: 'Autres produits', viewAll: 'Voir catalogue' },
   };
   const texts = t[validLocale] || t.es;
 
@@ -62,7 +62,7 @@ export default function PostalCodePage({ params }: PageProps) {
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-neutral-100">
         <div className="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
           <Link href={`/${locale}`} className="text-lg font-light tracking-wide text-neutral-900">
-            SaunaSpa.io
+            Sauna Spa
           </Link>
           <nav className="hidden md:flex items-center gap-8 text-sm text-neutral-500">
             {PRODUCT_CATEGORIES.slice(0, 4).map(cat => (
@@ -147,7 +147,7 @@ export default function PostalCodePage({ params }: PageProps) {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {[
                 { title: texts.warranty, desc: 'Cobertura completa en todos los productos' },
-                { title: texts.install, desc: `Equipo profesional en ${postalData.name}` },
+                { title: texts.quality, desc: 'Materiales de primera calidad' },
                 { title: texts.delivery, desc: `Entrega en ${postalData.region}` },
               ].map((feature, i) => (
                 <div key={i} className="flex items-start gap-4">
@@ -259,7 +259,7 @@ export default function PostalCodePage({ params }: PageProps) {
               {catName} en {postalData.name}
             </h2>
             <p className="text-neutral-400 mb-8 max-w-md mx-auto">
-              Presupuesto sin compromiso. Instalación profesional incluida.
+              Presupuesto sin compromiso. Calidad premium garantizada.
             </p>
             <button 
               onClick={() => openIntercomChat()}
@@ -275,7 +275,7 @@ export default function PostalCodePage({ params }: PageProps) {
       {/* Footer */}
       <footer className="py-8 bg-white border-t border-neutral-100">
         <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-neutral-400">
-          <p>© 2024 SaunaSpa.io</p>
+          <p>© 2024 Sauna Spa</p>
           <div className="flex gap-6">
             <Link href={`/${locale}/legal`} className="hover:text-neutral-600">Legal</Link>
             <Link href={`/${locale}/privacidad`} className="hover:text-neutral-600">Privacidad</Link>
