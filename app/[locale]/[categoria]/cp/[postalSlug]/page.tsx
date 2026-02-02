@@ -62,7 +62,7 @@ export default function PostalCodePage({ params }: PageProps) {
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-neutral-100">
         <div className="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
           <Link href={`/${locale}`} className="text-lg font-light tracking-wide text-neutral-900">
-            Saunas & Spas
+            SaunaSpa.io
           </Link>
           <nav className="hidden md:flex items-center gap-8 text-sm text-neutral-500">
             {PRODUCT_CATEGORIES.slice(0, 4).map(cat => (
@@ -275,7 +275,7 @@ export default function PostalCodePage({ params }: PageProps) {
       {/* Footer */}
       <footer className="py-8 bg-white border-t border-neutral-100">
         <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-neutral-400">
-          <p>© 2024 Saunas & Spas</p>
+          <p>© 2024 SaunaSpa.io</p>
           <div className="flex gap-6">
             <Link href={`/${locale}/legal`} className="hover:text-neutral-600">Legal</Link>
             <Link href={`/${locale}/privacidad`} className="hover:text-neutral-600">Privacidad</Link>

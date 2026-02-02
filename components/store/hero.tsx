@@ -15,7 +15,7 @@ export function Hero({ locale }: HeroProps) {
   const texts: Record<string, { tag: string; title: string; subtitle: string; cta: string; stats: { value: string; label: string }[] }> = {
     es: {
       tag: 'Bienestar Premium',
-      title: 'Saunas & Spas\npara tu hogar',
+      title: 'SaunaSpa.io\npara tu hogar',
       subtitle: 'Instalación profesional. Garantía 5 años. Presupuesto sin compromiso.',
       cta: 'Ver Catálogo',
       stats: [
@@ -26,7 +26,7 @@ export function Hero({ locale }: HeroProps) {
     },
     en: {
       tag: 'Premium Wellness',
-      title: 'Saunas & Spas\nfor your home',
+      title: 'SaunaSpa.io\nfor your home',
       subtitle: 'Professional installation. 5 year warranty. Free quote.',
       cta: 'View Catalog',
       stats: [
@@ -37,7 +37,7 @@ export function Hero({ locale }: HeroProps) {
     },
     de: {
       tag: 'Premium Wellness',
-      title: 'Saunas & Spas\nfür Ihr Zuhause',
+      title: 'SaunaSpa.io\nfür Ihr Zuhause',
       subtitle: 'Professionelle Installation. 5 Jahre Garantie. Kostenloses Angebot.',
       cta: 'Katalog Ansehen',
       stats: [
@@ -48,7 +48,7 @@ export function Hero({ locale }: HeroProps) {
     },
     fr: {
       tag: 'Bien-être Premium',
-      title: 'Saunas & Spas\npour votre maison',
+      title: 'SaunaSpa.io\npour votre maison',
       subtitle: 'Installation professionnelle. Garantie 5 ans. Devis gratuit.',
       cta: 'Voir Catalogue',
       stats: [

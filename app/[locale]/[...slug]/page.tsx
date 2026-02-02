@@ -85,7 +85,7 @@ export default function DynamicPage({ params }: PageProps) {
               {/* Content */}
               <div>
                 <span className="inline-block text-xs tracking-widest text-neutral-400 uppercase mb-6">
-                  Saunas & Spas
+                  SaunaSpa.io
                 </span>
                 <h1 className="text-4xl md:text-5xl font-light text-neutral-900 leading-tight mb-6">
                   {catName}

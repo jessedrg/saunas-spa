@@ -818,7 +818,7 @@ export const TRANSLATIONS: Record<Locale, {
   nav: { home: string; shop: string; about: string; contact: string };
 }> = {
   es: {
-    hero: { title: 'Saunas y Spas\npara tu Hogar', subtitle: 'Saunas finlandesas, jacuzzis y spas de la más alta calidad. Instalación profesional, garantía incluida.', cta: 'Ver Catálogo' },
+    hero: { title: 'SaunaSpa.io\npara tu Hogar', subtitle: 'Saunas finlandesas, jacuzzis y spas de la más alta calidad. Instalación profesional, garantía incluida.', cta: 'Ver Catálogo' },
     features: { quality: 'Calidad Premium', qualityDesc: 'Maderas nobles y materiales de primera calidad', shipping: 'Envío e Instalación', shippingDesc: 'Entrega e instalación profesional incluida', support: 'Asesoría Experta', supportDesc: 'Te ayudamos a elegir el modelo perfecto', lab: 'Garantía 5 Años', labDesc: 'Garantía completa en todos los productos' },
     products: { title: 'Nuestra Selección', viewAll: 'Ver Todo' },
     categories: { title: 'Categorías' },

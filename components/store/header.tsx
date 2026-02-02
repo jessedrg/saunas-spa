@@ -52,7 +52,7 @@ export function Header({ locale, transparent = false }: HeaderProps) {
                 transparent ? "text-white" : "text-neutral-900"
               )}
             >
-              Saunas & Spas
+              SaunaSpa.io
             </Link>
 
             {/* Desktop Nav */}

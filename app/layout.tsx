@@ -17,19 +17,19 @@ const cormorant = Cormorant_Garamond({
   display: 'swap'
 });
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://saunasyspas.es';
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://saunaspa.io';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Saunas y Spas | Saunas Finlandesas y Jacuzzis para Casa',
-    template: '%s | Saunas y Spas',
+    default: 'SaunaSpa.io | Saunas Finlandesas y Jacuzzis para Casa',
+    template: '%s | SaunaSpa.io',
   },
   description: 'Saunas finlandesas, jacuzzis exterior y spas para tu hogar. Instalación profesional, garantía 5 años. Presupuesto sin compromiso.',
   keywords: ['sauna finlandesa', 'jacuzzi exterior', 'spa casa', 'sauna casa precio', 'jacuzzi precio', 'bañera hidromasaje', 'cabina infrarrojos', 'spa hinchable'],
-  authors: [{ name: 'Saunas y Spas' }],
-  creator: 'Saunas y Spas',
-  publisher: 'Saunas y Spas',
+  authors: [{ name: 'SaunaSpa.io' }],
+  creator: 'SaunaSpa.io',
+  publisher: 'SaunaSpa.io',
   formatDetection: {
     email: false,
     address: false,
@@ -49,24 +49,24 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'es_ES',
     url: SITE_URL,
-    siteName: 'Saunas y Spas',
-    title: 'Saunas y Spas | Saunas Finlandesas y Jacuzzis para Casa',
+    siteName: 'SaunaSpa.io',
+    title: 'SaunaSpa.io | Saunas Finlandesas y Jacuzzis para Casa',
     description: 'Saunas finlandesas, jacuzzis exterior y spas para tu hogar. Instalación profesional, garantía 5 años.',
     images: [
       {
         url: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=1200&h=630&fit=crop&q=80',
         width: 1200,
         height: 630,
-        alt: 'Saunas y Spas - Tu Oasis de Bienestar en Casa',
+        alt: 'SaunaSpa.io - Tu Oasis de Bienestar en Casa',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Saunas y Spas | Saunas Finlandesas y Jacuzzis',
+    title: 'SaunaSpa.io | Saunas Finlandesas y Jacuzzis',
     description: 'Saunas finlandesas, jacuzzis y spas para tu hogar. Instalación profesional.',
     images: ['https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=1200&h=630&fit=crop&q=80'],
-    creator: '@saunasyspas',
+    creator: '@saunaspaio',
   },
   robots: {
     index: true,
