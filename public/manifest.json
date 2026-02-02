@@ -1,0 +1,23 @@
+{
+  "name": "CBD Boutique - Premium CBD Products",
+  "short_name": "CBD Boutique",
+  "description": "Premium CBD products. Organic, lab-tested CBD oils, flowers, cosmetics and edibles. Discreet shipping.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1a1a1a",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon-light-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["shopping", "health", "medical"]
+}

@@ -1,0 +1,107 @@
+import Link from "next/link";
+import Image from "next/image";
+import { ArrowUpRight } from "lucide-react";
+import { type Locale } from "@/lib/seo-data";
+
+interface CategoriesProps {
+  locale: Locale;
+}
+
+const CATEGORIES = [
+  { 
+    slug: 'saunas-finlandesas',
+    image: 'https://images.unsplash.com/photo-1655194911126-6032bdcccc9d?q=80&w=987&auto=format&fit=crop',
+    price: '2.500€',
+    names: { es: 'Saunas Finlandesas', en: 'Finnish Saunas', de: 'Finnische Saunas', fr: 'Saunas Finlandais' },
+    desc: { es: 'Madera de alta calidad', en: 'Premium wood quality', de: 'Hochwertige Holzqualität', fr: 'Bois de haute qualité' }
+  },
+  { 
+    slug: 'jacuzzis',
+    image: 'https://images.unsplash.com/photo-1762255146530-8eca66af23b2?q=80&w=987&auto=format&fit=crop',
+    price: '3.000€',
+    names: { es: 'Jacuzzis Exterior', en: 'Outdoor Hot Tubs', de: 'Außen-Whirlpools', fr: 'Jacuzzis Extérieur' },
+    desc: { es: 'Para jardín y terraza', en: 'For garden and terrace', de: 'Für Garten und Terrasse', fr: 'Pour jardin et terrasse' }
+  },
+  { 
+    slug: 'spas',
+    image: 'https://img.edilportale.com/product-thumbs/b_Jacuzzi_J-475_XugmIfCBJW.jpeg',
+    price: '1.500€',
+    names: { es: 'Spas & Hidromasaje', en: 'Spas & Whirlpools', de: 'Spas & Whirlpools', fr: 'Spas & Balnéo' },
+    desc: { es: 'Relajación total', en: 'Total relaxation', de: 'Totale Entspannung', fr: 'Relaxation totale' }
+  },
+  { 
+    slug: 'infrarrojos',
+    image: 'https://aurorahomeluxury.co.uk/cdn/shop/files/insignia-outdoor-hybrid-infrared-sauna-1700-x-1500mm-gardensetting_1200x1200_crop_center.jpg?v=1726583291',
+    price: '1.200€',
+    names: { es: 'Cabinas Infrarrojos', en: 'Infrared Cabins', de: 'Infrarotkabinen', fr: 'Cabines Infrarouges' },
+    desc: { es: 'Terapia y bienestar', en: 'Therapy and wellness', de: 'Therapie und Wellness', fr: 'Thérapie et bien-être' }
+  },
+];
+
+export function Categories({ locale }: CategoriesProps) {
+  const texts: Record<string, { title: string; subtitle: string; from: string }> = {
+    es: { title: 'Nuestros Productos', subtitle: 'Calidad premium para tu hogar', from: 'Desde' },
+    en: { title: 'Our Products', subtitle: 'Premium quality for your home', from: 'From' },
+    de: { title: 'Unsere Produkte', subtitle: 'Premium-Qualität für Ihr Zuhause', from: 'Ab' },
+    fr: { title: 'Nos Produits', subtitle: 'Qualité premium pour votre maison', from: 'À partir de' },
+  };
+  const t = texts[locale] || texts.es;
+
+  return (
+    <section className="py-24 bg-white">
+      <div className="max-w-6xl mx-auto px-6">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-light text-neutral-900 mb-4">
+            {t.title}
+          </h2>
+          <p className="text-neutral-500">
+            {t.subtitle}
+          </p>
+        </div>
+
+        {/* Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {CATEGORIES.map((cat) => (
+            <Link 
+              key={cat.slug}
+              href={`/${locale === 'en' ? '' : locale + '/'}${cat.slug}`}
+              className="group"
+            >
+              {/* Image */}
+              <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-neutral-100 mb-4">
+                <Image
+                  src={cat.image}
+                  alt={cat.names[locale as keyof typeof cat.names] || cat.names.es}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                />
+                {/* Hover overlay */}
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
+                {/* Arrow */}
+                <div className="absolute top-4 right-4 w-10 h-10 bg-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                  <ArrowUpRight className="w-4 h-4 text-neutral-900" />
+                </div>
+              </div>
+              
+              {/* Content */}
+              <div className="space-y-1">
+                <h3 className="text-lg font-medium text-neutral-900 group-hover:text-neutral-600 transition-colors">
+                  {cat.names[locale as keyof typeof cat.names] || cat.names.es}
+                </h3>
+                <p className="text-sm text-neutral-400">
+                  {cat.desc[locale as keyof typeof cat.desc] || cat.desc.es}
+                </p>
+                <p className="text-sm text-neutral-500 pt-2">
+                  <span className="text-neutral-400">{t.from}</span>{' '}
+                  <span className="font-medium text-neutral-900">{cat.price}</span>
+                </p>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
