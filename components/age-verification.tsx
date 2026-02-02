@@ -28,7 +28,7 @@ const AGE_CONTENT: Record<string, {
 }> = {
   en: {
     title: "Age Verification",
-    subtitle: "Saunas Boutique",
+    subtitle: "SaunaSpa.io",
     question: "Are you 18 years of age or older?",
     confirm: "Yes, I am 18+",
     deny: "No, I am under 18",
@@ -36,7 +36,7 @@ const AGE_CONTENT: Record<string, {
   },
   es: {
     title: "Verificación de Edad",
-    subtitle: "Saunas Boutique",
+    subtitle: "SaunaSpa.io",
     question: "¿Tienes 18 años o más?",
     confirm: "Sí, tengo 18+",
     deny: "No, soy menor de 18",
@@ -44,7 +44,7 @@ const AGE_CONTENT: Record<string, {
   },
   de: {
     title: "Altersverifikation",
-    subtitle: "Saunas Boutique",
+    subtitle: "SaunaSpa.io",
     question: "Sind Sie 18 Jahre oder älter?",
     confirm: "Ja, ich bin 18+",
     deny: "Nein, ich bin unter 18",
@@ -52,7 +52,7 @@ const AGE_CONTENT: Record<string, {
   },
   fr: {
     title: "Vérification de l'âge",
-    subtitle: "Saunas Boutique",
+    subtitle: "SaunaSpa.io",
     question: "Avez-vous 18 ans ou plus?",
     confirm: "Oui, j'ai 18+",
     deny: "Non, j'ai moins de 18 ans",

@@ -52,7 +52,7 @@ const CONTACT_CONTENT: Record<string, {
     },
     info: {
       title: "Contact Information",
-      email: { label: "Email", value: "hello@sauna-boutique.com" },
+      email: { label: "Email", value: "hello@saunaspa.io" },
       phone: { label: "Phone", value: "+41 800 123 456" },
       address: { label: "Address", value: "Bahnhofstrasse 42, 8001 Zürich, Switzerland" }
     },
@@ -84,7 +84,7 @@ const CONTACT_CONTENT: Record<string, {
     },
     info: {
       title: "Información de Contacto",
-      email: { label: "Email", value: "hola@sauna-boutique.com" },
+      email: { label: "Email", value: "hola@saunaspa.io" },
       phone: { label: "Teléfono", value: "+41 800 123 456" },
       address: { label: "Dirección", value: "Bahnhofstrasse 42, 8001 Zürich, Suiza" }
     },
@@ -116,7 +116,7 @@ const CONTACT_CONTENT: Record<string, {
     },
     info: {
       title: "Kontaktinformationen",
-      email: { label: "E-Mail", value: "hallo@sauna-boutique.com" },
+      email: { label: "E-Mail", value: "hallo@saunaspa.io" },
       phone: { label: "Telefon", value: "+41 800 123 456" },
       address: { label: "Adresse", value: "Bahnhofstrasse 42, 8001 Zürich, Schweiz" }
     },
@@ -148,7 +148,7 @@ const CONTACT_CONTENT: Record<string, {
     },
     info: {
       title: "Informations de Contact",
-      email: { label: "Email", value: "bonjour@sauna-boutique.com" },
+      email: { label: "Email", value: "bonjour@saunaspa.io" },
       phone: { label: "Téléphone", value: "+41 800 123 456" },
       address: { label: "Adresse", value: "Bahnhofstrasse 42, 8001 Zürich, Suisse" }
     },

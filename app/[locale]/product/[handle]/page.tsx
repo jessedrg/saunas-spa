@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (!product) {
     return {
-      title: "Product Not Found | Saunas Boutique",
+      title: "Product Not Found | SaunaSpa.io",
     };
   }
 
@@ -37,22 +37,22 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const imageUrl = product.images?.edges?.[0]?.node?.url;
 
   return {
-    title: `${translated.title} | Saunas Boutique`,
-    description: translated.description?.slice(0, 160) || `Buy ${translated.title} at Saunas Boutique`,
+    title: `${translated.title} | SaunaSpa.io`,
+    description: translated.description?.slice(0, 160) || `Buy ${translated.title} at SaunaSpa.io`,
     alternates: {
       canonical: `/${locale}/product/${handle}`,
     },
     openGraph: {
-      title: `${translated.title} | Saunas Boutique`,
+      title: `${translated.title} | SaunaSpa.io`,
       description: translated.description?.slice(0, 160),
       url: `/${locale}/product/${handle}`,
-      siteName: "Saunas Boutique",
+      siteName: "SaunaSpa.io",
       type: "website",
       images: imageUrl ? [{ url: imageUrl, width: 1200, height: 630, alt: translated.title }] : [],
     },
     twitter: {
       card: "summary_large_image",
-      title: `${translated.title} | Saunas Boutique`,
+      title: `${translated.title} | SaunaSpa.io`,
       description: translated.description?.slice(0, 160),
       images: imageUrl ? [imageUrl] : [],
     },
