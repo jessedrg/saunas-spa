@@ -43,6 +43,60 @@ export function Features({ locale }: FeaturesProps) {
         { title: 'Support 24/7', desc: 'Service client toujours disponible' },
       ]
     },
+    it: {
+      title: 'Perché sceglierci',
+      features: [
+        { title: 'Garanzia 5 anni', desc: 'Copertura completa su tutti i prodotti' },
+        { title: 'Spedizione gratuita', desc: 'Consegna gratuita in tutta Italia' },
+        { title: 'Installazione professionale', desc: 'Team tecnico specializzato' },
+        { title: 'Supporto 24/7', desc: 'Servizio clienti sempre disponibile' },
+      ]
+    },
+    pt: {
+      title: 'Por que nos escolher',
+      features: [
+        { title: 'Garantia 5 anos', desc: 'Cobertura completa em todos os produtos' },
+        { title: 'Envio grátis', desc: 'Entrega gratuita em todo Portugal' },
+        { title: 'Instalação profissional', desc: 'Equipe técnica especializada' },
+        { title: 'Suporte 24/7', desc: 'Atendimento ao cliente sempre disponível' },
+      ]
+    },
+    nl: {
+      title: 'Waarom ons kiezen',
+      features: [
+        { title: '5 jaar garantie', desc: 'Volledige dekking op alle producten' },
+        { title: 'Gratis verzending', desc: 'Gratis levering in heel Nederland' },
+        { title: 'Professionele installatie', desc: 'Gespecialiseerd technisch team' },
+        { title: '24/7 Ondersteuning', desc: 'Klantenservice altijd beschikbaar' },
+      ]
+    },
+    pl: {
+      title: 'Dlaczego my',
+      features: [
+        { title: 'Gwarancja 5 lat', desc: 'Pełne pokrycie wszystkich produktów' },
+        { title: 'Darmowa wysyłka', desc: 'Bezpłatna dostawa w całej Polsce' },
+        { title: 'Profesjonalna instalacja', desc: 'Wyspecjalizowany zespół techniczny' },
+        { title: 'Wsparcie 24/7', desc: 'Obsługa klienta zawsze dostępna' },
+      ]
+    },
+    cs: {
+      title: 'Proč si vybrat nás',
+      features: [
+        { title: 'Záruka 5 let', desc: 'Plné krytí všech produktů' },
+        { title: 'Doprava zdarma', desc: 'Bezplatné doručení po celé ČR' },
+        { title: 'Profesionální instalace', desc: 'Specializovaný technický tým' },
+        { title: 'Podpora 24/7', desc: 'Zákaznický servis vždy k dispozici' },
+      ]
+    },
+    el: {
+      title: 'Γιατί να μας επιλέξετε',
+      features: [
+        { title: 'Εγγύηση 5 ετών', desc: 'Πλήρης κάλυψη σε όλα τα προϊόντα' },
+        { title: 'Δωρεάν αποστολή', desc: 'Δωρεάν παράδοση σε όλη την Ελλάδα' },
+        { title: 'Επαγγελματική εγκατάσταση', desc: 'Εξειδικευμένη τεχνική ομάδα' },
+        { title: 'Υποστήριξη 24/7', desc: 'Εξυπηρέτηση πελατών πάντα διαθέσιμη' },
+      ]
+    },
   };
 
   const t = texts[locale] || texts.es;

@@ -57,6 +57,72 @@ export function Hero({ locale }: HeroProps) {
         { value: '5 ans', label: 'Garantie' },
       ]
     },
+    it: {
+      tag: 'Benessere Premium',
+      title: 'Sauna Spa\nper la tua casa',
+      subtitle: 'Garanzia 5 anni. Preventivo gratuito.',
+      cta: 'Vedi Catalogo',
+      stats: [
+        { value: '2.000+', label: 'Clienti' },
+        { value: '4.9', label: 'Valutazione' },
+        { value: '5 anni', label: 'Garanzia' },
+      ]
+    },
+    pt: {
+      tag: 'Bem-estar Premium',
+      title: 'Sauna Spa\npara a sua casa',
+      subtitle: 'Garantia 5 anos. Orçamento grátis.',
+      cta: 'Ver Catálogo',
+      stats: [
+        { value: '2.000+', label: 'Clientes' },
+        { value: '4.9', label: 'Avaliação' },
+        { value: '5 anos', label: 'Garantia' },
+      ]
+    },
+    nl: {
+      tag: 'Premium Wellness',
+      title: 'Sauna Spa\nvoor uw huis',
+      subtitle: '5 jaar garantie. Gratis offerte.',
+      cta: 'Bekijk Catalogus',
+      stats: [
+        { value: '2.000+', label: 'Klanten' },
+        { value: '4.9', label: 'Beoordeling' },
+        { value: '5 jaar', label: 'Garantie' },
+      ]
+    },
+    pl: {
+      tag: 'Premium Wellness',
+      title: 'Sauna Spa\ndla Twojego domu',
+      subtitle: 'Gwarancja 5 lat. Darmowa wycena.',
+      cta: 'Zobacz Katalog',
+      stats: [
+        { value: '2 000+', label: 'Klientów' },
+        { value: '4.9', label: 'Ocena' },
+        { value: '5 lat', label: 'Gwarancja' },
+      ]
+    },
+    cs: {
+      tag: 'Premium Wellness',
+      title: 'Sauna Spa\npro váš domov',
+      subtitle: 'Záruka 5 let. Nabídka zdarma.',
+      cta: 'Zobrazit Katalog',
+      stats: [
+        { value: '2 000+', label: 'Zákazníků' },
+        { value: '4.9', label: 'Hodnocení' },
+        { value: '5 let', label: 'Záruka' },
+      ]
+    },
+    el: {
+      tag: 'Premium Ευεξία',
+      title: 'Sauna Spa\nγια το σπίτι σας',
+      subtitle: 'Εγγύηση 5 ετών. Δωρεάν προσφορά.',
+      cta: 'Δείτε Κατάλογο',
+      stats: [
+        { value: '2.000+', label: 'Πελάτες' },
+        { value: '4.9', label: 'Αξιολόγηση' },
+        { value: '5 έτη', label: 'Εγγύηση' },
+      ]
+    },
   };
 
   const t = texts[locale] || texts.es;
@@ -102,7 +168,7 @@ export function Hero({ locale }: HeroProps) {
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-neutral-200 text-neutral-700 text-sm rounded-full hover:bg-neutral-100 transition-colors"
               >
                 <MessageCircle className="w-4 h-4" />
-                Contactar
+                {locale === 'es' ? 'Contactar' : locale === 'en' ? 'Contact' : locale === 'de' ? 'Kontakt' : locale === 'fr' ? 'Contact' : locale === 'it' ? 'Contatto' : locale === 'pt' ? 'Contato' : locale === 'nl' ? 'Contact' : locale === 'pl' ? 'Kontakt' : 'Contact'}
               </button>
             </div>
 
@@ -121,7 +187,7 @@ export function Hero({ locale }: HeroProps) {
         {/* Right - Image */}
         <div className="relative hidden lg:block">
           <Image 
-            src="https://images.unsplash.com/photo-1647633391986-4614f2ee0ca4?q=80&w=2767&auto=format&fit=crop" 
+            src="https://images.unsplash.com/photo-1759302354886-f2c37dd3dd8c?q=80&w=1349&auto=format&fit=crop" 
             alt="Sauna finlandesa" 
             fill 
             className="object-cover" 
@@ -136,7 +202,7 @@ export function Hero({ locale }: HeroProps) {
       {/* Mobile Image */}
       <div className="relative h-80 lg:hidden">
         <Image 
-          src="https://images.unsplash.com/photo-1647633391986-4614f2ee0ca4?q=80&w=2767&auto=format&fit=crop" 
+          src="https://images.unsplash.com/photo-1759302354886-f2c37dd3dd8c?q=80&w=1349&auto=format&fit=crop" 
           alt="Sauna finlandesa" 
           fill 
           className="object-cover" 

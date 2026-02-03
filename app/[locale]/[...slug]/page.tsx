@@ -263,19 +263,62 @@ export default async function DynamicPage({ params }: PageProps) {
         <section className="py-16 bg-white border-t border-neutral-100">
           <div className="max-w-6xl mx-auto px-6">
             <div className="grid md:grid-cols-3 gap-6">
-              {[1, 2, 3].map((i) => (
-                <div key={i} className="p-6 bg-neutral-50 rounded-2xl">
-                  <div className="flex gap-1 mb-3">
-                    {[1, 2, 3, 4, 5].map((s) => (
-                      <Star key={s} className="w-4 h-4 fill-amber-400 text-amber-400" />
-                    ))}
+              {(() => {
+                const reviews: Record<string, { text: string; author: string }[]> = {
+                  es: [
+                    { text: 'Excelente calidad y servicio. La instalación fue rápida y profesional.', author: 'Cliente verificado' },
+                    { text: 'Muy contentos con nuestra sauna. Superó todas nuestras expectativas.', author: 'Cliente verificado' },
+                    { text: 'El equipo fue muy profesional. Recomendado 100%.', author: 'Cliente verificado' },
+                  ],
+                  en: [
+                    { text: 'Excellent quality and service. Installation was quick and professional.', author: 'Verified customer' },
+                    { text: 'Very happy with our sauna. Exceeded all our expectations.', author: 'Verified customer' },
+                    { text: 'The team was very professional. 100% recommended.', author: 'Verified customer' },
+                  ],
+                  de: [
+                    { text: 'Ausgezeichnete Qualität und Service. Die Installation war schnell und professionell.', author: 'Verifizierter Kunde' },
+                    { text: 'Sehr zufrieden mit unserer Sauna. Hat alle Erwartungen übertroffen.', author: 'Verifizierter Kunde' },
+                    { text: 'Das Team war sehr professionell. 100% empfohlen.', author: 'Verifizierter Kunde' },
+                  ],
+                  fr: [
+                    { text: 'Excellente qualité et service. L\'installation a été rapide et professionnelle.', author: 'Client vérifié' },
+                    { text: 'Très satisfaits de notre sauna. A dépassé toutes nos attentes.', author: 'Client vérifié' },
+                    { text: 'L\'équipe était très professionnelle. Recommandé à 100%.', author: 'Client vérifié' },
+                  ],
+                  it: [
+                    { text: 'Qualità e servizio eccellenti. L\'installazione è stata rapida e professionale.', author: 'Cliente verificato' },
+                    { text: 'Molto soddisfatti della nostra sauna. Ha superato tutte le aspettative.', author: 'Cliente verificato' },
+                    { text: 'Il team è stato molto professionale. Consigliato al 100%.', author: 'Cliente verificato' },
+                  ],
+                  pt: [
+                    { text: 'Excelente qualidade e serviço. A instalação foi rápida e profissional.', author: 'Cliente verificado' },
+                    { text: 'Muito satisfeitos com nossa sauna. Superou todas as expectativas.', author: 'Cliente verificado' },
+                    { text: 'A equipe foi muito profissional. Recomendado 100%.', author: 'Cliente verificado' },
+                  ],
+                  nl: [
+                    { text: 'Uitstekende kwaliteit en service. Installatie was snel en professioneel.', author: 'Geverifieerde klant' },
+                    { text: 'Zeer tevreden met onze sauna. Overtrof al onze verwachtingen.', author: 'Geverifieerde klant' },
+                    { text: 'Het team was zeer professioneel. 100% aanbevolen.', author: 'Geverifieerde klant' },
+                  ],
+                  pl: [
+                    { text: 'Doskonała jakość i obsługa. Instalacja była szybka i profesjonalna.', author: 'Zweryfikowany klient' },
+                    { text: 'Bardzo zadowoleni z naszej sauny. Przekroczyła wszystkie oczekiwania.', author: 'Zweryfikowany klient' },
+                    { text: 'Zespół był bardzo profesjonalny. Polecam w 100%.', author: 'Zweryfikowany klient' },
+                  ],
+                };
+                const r = reviews[validLocale] || reviews.es;
+                return r.map((review, i) => (
+                  <div key={i} className="p-6 bg-neutral-50 rounded-2xl">
+                    <div className="flex gap-1 mb-3">
+                      {[1, 2, 3, 4, 5].map((s) => (
+                        <Star key={s} className="w-4 h-4 fill-amber-400 text-amber-400" />
+                      ))}
+                    </div>
+                    <p className="text-sm text-neutral-600 mb-4">"{review.text}"</p>
+                    <p className="text-xs text-neutral-400">{review.author}</p>
                   </div>
-                  <p className="text-sm text-neutral-600 mb-4">
-                    "Excelente calidad y servicio. La instalación fue rápida y profesional."
-                  </p>
-                  <p className="text-xs text-neutral-400">Cliente verificado</p>
-                </div>
-              ))}
+                ));
+              })()}
             </div>
           </div>
         </section>
