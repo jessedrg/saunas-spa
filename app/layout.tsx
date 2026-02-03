@@ -54,10 +54,10 @@ export const metadata: Metadata = {
     description: 'Saunas finlandesas, jacuzzis exterior y spas para tu hogar. Garantía 5 años.',
     images: [
       {
-        url: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=1200&h=630&fit=crop&q=80',
+        url: 'https://images.unsplash.com/photo-1655194911126-6032bdcccc9d?w=1200&h=630&fit=crop&q=80',
         width: 1200,
         height: 630,
-        alt: 'Sauna Spa - Tu Oasis de Bienestar en Casa',
+        alt: 'Sauna Spa - Saunas Finlandesas y Jacuzzis para Casa',
       },
     ],
   },
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Sauna Spa | Saunas Finlandesas y Jacuzzis',
     description: 'Saunas finlandesas, jacuzzis y spas para tu hogar.',
-    images: ['https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=1200&h=630&fit=crop&q=80'],
+    images: ['https://images.unsplash.com/photo-1655194911126-6032bdcccc9d?w=1200&h=630&fit=crop&q=80'],
     creator: '@saunaspaio',
   },
   robots: {
