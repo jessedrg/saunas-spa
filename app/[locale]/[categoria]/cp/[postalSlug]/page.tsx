@@ -16,6 +16,7 @@ import {
 import { SUPPORTED_LOCALES, type Locale } from "@/lib/seo-data"
 import { PostalSEOSchemas, PostalFAQSection, PostalBreadcrumbs, PostalPriceTable, type PostalSEOProps } from "@/components/seo/postal-seo"
 import { IntercomButton } from "@/components/pages/intercom-button"
+import { ShopifyProducts } from "@/components/store/shopify-products"
 
 const LOCALE_COUNTRY: Record<string, CountryCode> = {
   es: 'ES', de: 'DE', fr: 'FR', it: 'IT', pt: 'PT', nl: 'NL', pl: 'PL'
@@ -286,6 +287,14 @@ export default async function PostalCodePage({ params }: PageProps) {
             </div>
           </div>
         </section>
+
+        {/* Shopify Products */}
+        <ShopifyProducts 
+          locale={validLocale} 
+          collection={categoria} 
+          title={`${catName} en ${postalData.name}`}
+          limit={8}
+        />
 
         {/* Price Table */}
         <PostalPriceTable data={seoData} products={priceProducts} />

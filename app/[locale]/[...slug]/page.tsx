@@ -9,6 +9,7 @@ import { SUPPORTED_LOCALES, type Locale } from "@/lib/seo-data";
 import { ArrowRight, Check, Star } from "lucide-react";
 import { SEOHead, FAQSection, type SEOData } from "@/components/seo/programmatic-seo";
 import { IntercomButton } from "@/components/pages/intercom-button";
+import { ShopifyProducts } from "@/components/store/shopify-products";
 
 interface PageProps {
   params: Promise<{ locale: string; slug: string[] }>;
@@ -229,6 +230,14 @@ export default async function DynamicPage({ params }: PageProps) {
             </div>
           </div>
         </section>
+
+        {/* Shopify Products */}
+        <ShopifyProducts 
+          locale={validLocale} 
+          collection={category?.slug} 
+          title={`${catName} - Productos Destacados`}
+          limit={8}
+        />
 
         {/* Related Products */}
         <section className="py-16 border-t border-neutral-100">
