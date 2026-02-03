@@ -46,7 +46,7 @@ export async function ShopifyProducts({ locale, collection, limit = 8, title }: 
   }
 
   return (
-    <section className="py-10 sm:py-16 lg:py-24">
+    <section id="products" className="py-10 sm:py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {title && (
           <div className="text-center mb-6 sm:mb-8 lg:mb-12">

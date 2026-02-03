@@ -156,13 +156,18 @@ export function Hero({ locale }: HeroProps) {
 
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row gap-4 mb-16">
-              <Link 
-                href={`/${locale === 'en' ? '' : locale + '/'}saunas-finlandesas`}
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-neutral-900 text-white text-sm rounded-full hover:bg-neutral-800 transition-colors"
+              <button 
+                onClick={() => {
+                  const collectionsSection = document.getElementById('collections');
+                  if (collectionsSection) {
+                    collectionsSection.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-neutral-900 text-white text-sm rounded-full hover:bg-neutral-800 transition-colors cursor-pointer"
               >
                 {t.cta}
                 <ArrowRight className="w-4 h-4" />
-              </Link>
+              </button>
               <button 
                 onClick={() => openIntercomChat()}
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-neutral-200 text-neutral-700 text-sm rounded-full hover:bg-neutral-100 transition-colors"

@@ -10,6 +10,7 @@ import { ArrowRight, Check, Star } from "lucide-react";
 import { SEOHead, FAQSection, type SEOData } from "@/components/seo/programmatic-seo";
 import { IntercomButton } from "@/components/pages/intercom-button";
 import { ShopifyProducts } from "@/components/store/shopify-products";
+import { ScrollToProductsButton } from "@/components/store/scroll-to-products";
 
 interface PageProps {
   params: Promise<{ locale: string; slug: string[] }>;
@@ -214,13 +215,10 @@ export default async function DynamicPage({ params }: PageProps) {
                     text={t.quote}
                     className="px-8 py-4 bg-neutral-900 text-white text-sm rounded-full hover:bg-neutral-800 transition-colors"
                   />
-                  <Link 
-                    href={`/${locale}`}
-                    className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-neutral-200 text-neutral-700 text-sm rounded-full hover:bg-neutral-100 transition-colors"
-                  >
-                    {t.catalog}
-                    <ArrowRight className="w-4 h-4" />
-                  </Link>
+                  <ScrollToProductsButton 
+                    text={t.catalog}
+                    className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-neutral-200 text-neutral-700 text-sm rounded-full hover:bg-neutral-100 transition-colors cursor-pointer"
+                  />
                 </div>
               </div>
               

@@ -54,7 +54,7 @@ export function Categories({ locale }: CategoriesProps) {
   const t = texts[locale] || texts.es;
 
   return (
-    <section className="py-24 bg-white">
+    <section id="collections" className="py-24 bg-white">
       <div className="max-w-6xl mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-16">
