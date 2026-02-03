@@ -8,6 +8,7 @@ import {
   getCategoryBySlug,
   parsePostalSlug,
   getTopPostalCodes,
+  getLocalizedSlug,
   PRODUCT_CATEGORIES,
   COUNTRY_NAMES,
   formatPrice,
@@ -135,7 +136,7 @@ export default async function PostalCodePage({ params }: PageProps) {
             {PRODUCT_CATEGORIES.slice(0, 4).map(cat => (
               <Link 
                 key={cat.slug} 
-                href={`/${locale}/${cat.slug}`}
+                href={`/${locale}/${getLocalizedSlug(cat, validLocale)}`}
                 className={`hover:text-neutral-900 transition-colors ${cat.slug === categoria ? 'text-neutral-900' : ''}`}
               >
                 {cat.translations[validLocale as keyof typeof cat.translations] || cat.translations.en}
