@@ -1,11 +1,8 @@
-"use client"
-
-import { use } from "react"
+import type { Metadata } from "next";
 import { notFound } from "next/navigation"
 import Link from "next/link"
 import Image from "next/image"
-import { MapPin, MessageCircle, ArrowRight, Check, Star } from "lucide-react"
-import { openIntercomChat } from "@/components/intercom"
+import { MapPin, ArrowRight, Check, Star } from "lucide-react"
 import {
   getPostalCode,
   getCategoryBySlug,
@@ -18,6 +15,7 @@ import {
 } from "@/lib/postal-data"
 import { SUPPORTED_LOCALES, type Locale } from "@/lib/seo-data"
 import { PostalSEOSchemas, PostalFAQSection, PostalBreadcrumbs, PostalPriceTable, type PostalSEOProps } from "@/components/seo/postal-seo"
+import { IntercomButton } from "@/components/pages/intercom-button"
 
 const LOCALE_COUNTRY: Record<string, CountryCode> = {
   es: 'ES', de: 'DE', fr: 'FR', it: 'IT', pt: 'PT', nl: 'NL', pl: 'PL'
@@ -27,8 +25,53 @@ interface PageProps {
   params: Promise<{ locale: string; categoria: string; postalSlug: string }>
 }
 
-export default function PostalCodePage({ params }: PageProps) {
-  const { locale, categoria, postalSlug } = use(params);
+const SITE_URL = "https://saunaspa.io";
+
+// Dynamic metadata for postal code pages
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale, categoria, postalSlug } = await params;
+  const parsed = parsePostalSlug(postalSlug);
+  if (!parsed) return { title: 'Not Found' };
+  
+  const country = LOCALE_COUNTRY[locale] || 'ES';
+  const postalData = getPostalCode(country, parsed.postalCode);
+  const category = getCategoryBySlug(categoria);
+  const validLocale = (SUPPORTED_LOCALES.includes(locale as Locale) ? locale : 'es') as Locale;
+  
+  if (!postalData || !category) return { title: 'Not Found' };
+  
+  const catName = category.translations[validLocale as keyof typeof category.translations] || category.translations.en;
+  const ogImage = category.image ? `${category.image.split('?')[0]}?w=1200&h=630&fit=crop&q=80` : 'https://images.unsplash.com/photo-1655194911126-6032bdcccc9d?w=1200&h=630&fit=crop&q=80';
+  
+  const title = `${catName} en ${postalData.name} | Sauna Spa`;
+  const description = `${catName} en ${postalData.name} (${parsed.postalCode}). Garantía 5 años, instalación profesional incluida en ${postalData.region}.`;
+  const canonicalUrl = `${SITE_URL}/${locale}/${categoria}/cp/${postalSlug}`;
+
+  return {
+    title,
+    description,
+    alternates: { canonical: canonicalUrl },
+    openGraph: {
+      title,
+      description,
+      url: canonicalUrl,
+      siteName: 'Sauna Spa',
+      locale: locale === 'es' ? 'es_ES' : locale === 'en' ? 'en_US' : `${locale}_${locale.toUpperCase()}`,
+      type: 'website',
+      images: [{ url: ogImage, width: 1200, height: 630, alt: `${catName} en ${postalData.name}` }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [ogImage],
+    },
+    robots: { index: true, follow: true },
+  };
+}
+
+export default async function PostalCodePage({ params }: PageProps) {
+  const { locale, categoria, postalSlug } = await params;
   
   const parsed = parsePostalSlug(postalSlug);
   if (!parsed) notFound();
@@ -98,13 +141,10 @@ export default function PostalCodePage({ params }: PageProps) {
               </Link>
             ))}
           </nav>
-          <button 
-            onClick={() => openIntercomChat()}
-            className="text-xs rounded-full px-4 py-2 bg-neutral-900 text-white hover:bg-neutral-800 transition-colors flex items-center gap-2"
-          >
-            <MessageCircle className="w-3 h-3" />
-            {texts.quote}
-          </button>
+          <IntercomButton 
+            text={texts.quote}
+            className="text-xs rounded-full px-4 py-2 bg-neutral-900 text-white hover:bg-neutral-800 transition-colors"
+          />
         </div>
       </header>
 
@@ -137,13 +177,10 @@ export default function PostalCodePage({ params }: PageProps) {
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-3">
-                  <button 
-                    onClick={() => openIntercomChat()}
-                    className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-neutral-900 text-white text-sm rounded-full hover:bg-neutral-800 transition-colors"
-                  >
-                    <MessageCircle className="w-4 h-4" />
-                    {texts.quote}
-                  </button>
+                  <IntercomButton 
+                    text={texts.quote}
+                    className="px-8 py-4 bg-neutral-900 text-white text-sm rounded-full hover:bg-neutral-800 transition-colors"
+                  />
                   <Link 
                     href={`/${locale}/${categoria}`}
                     className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-neutral-200 text-neutral-700 text-sm rounded-full hover:bg-neutral-100 transition-colors"
@@ -293,13 +330,10 @@ export default function PostalCodePage({ params }: PageProps) {
             <p className="text-neutral-400 mb-8 max-w-md mx-auto">
               Presupuesto sin compromiso. Calidad premium garantizada.
             </p>
-            <button 
-              onClick={() => openIntercomChat()}
-              className="inline-flex items-center gap-2 px-10 py-4 bg-white text-neutral-900 text-sm rounded-full hover:bg-neutral-100 transition-colors"
-            >
-              <MessageCircle className="w-4 h-4" />
-              {texts.quote}
-            </button>
+            <IntercomButton 
+              text={texts.quote}
+              className="px-10 py-4 bg-white text-neutral-900 text-sm rounded-full hover:bg-neutral-100 transition-colors"
+            />
           </div>
         </section>
       </main>
