@@ -140,9 +140,11 @@ export default async function DynamicPage({ params }: PageProps) {
   const validLocale = SUPPORTED_LOCALES.includes(locale as Locale) ? locale as Locale : 'es';
   const category = getCategoryBySlug(slug?.[0] || '');
   
-  const catName = category?.names[validLocale as keyof typeof category.names] || category?.names.es || 'Saunas y Spas';
-  const catDesc = category?.desc[validLocale as keyof typeof category.desc] || category?.desc.es || '';
-  const catImage = category?.image || 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=1200&h=800&fit=crop';
+  const defaultNames: Record<string, string> = { es: 'Saunas y Spas', en: 'Saunas & Spas', de: 'Saunas & Spas', fr: 'Saunas & Spas', it: 'Saune & Spa', pt: 'Saunas & Spas', nl: 'Sauna\'s & Spa\'s', pl: 'Sauny & Spa' };
+  const defaultDescs: Record<string, string> = { es: 'Saunas finlandesas, jacuzzis y spas de alta calidad. Instalación profesional incluida.', en: 'Finnish saunas, hot tubs and spas of the highest quality. Professional installation included.', de: 'Finnische Saunas, Whirlpools und Spas höchster Qualität. Professionelle Installation inklusive.', fr: 'Saunas finlandais, jacuzzis et spas de haute qualité. Installation professionnelle incluse.', it: 'Saune finlandesi, vasche idromassaggio e spa di alta qualità. Installazione professionale inclusa.', pt: 'Saunas finlandesas, jacuzzis e spas de alta qualidade. Instalação profissional incluída.', nl: 'Finse sauna\'s, jacuzzi\'s en spa\'s van hoge kwaliteit. Professionele installatie inbegrepen.', pl: 'Fińskie sauny, jacuzzi i spa najwyższej jakości. Profesjonalna instalacja w cenie.' };
+  const catName = category?.names[validLocale as keyof typeof category.names] || category?.names.es || defaultNames[validLocale] || defaultNames.es;
+  const catDesc = category?.desc[validLocale as keyof typeof category.desc] || category?.desc.es || defaultDescs[validLocale] || defaultDescs.es;
+  const catImage = category?.image || 'https://images.unsplash.com/photo-1655194911126-6032bdcccc9d?q=80&w=987&auto=format&fit=crop';
   const catPrice = category?.price || '2.500€';
   
   // Related categories
