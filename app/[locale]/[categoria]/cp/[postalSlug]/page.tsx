@@ -117,10 +117,14 @@ export default async function PostalCodePage({ params }: PageProps) {
     .slice(0, 6);
 
   const t: Record<string, Record<string, string>> = {
-    es: { from: 'Desde', quote: 'Presupuesto Gratis', warranty: '5 años garantía', quality: 'Calidad premium', delivery: 'Entrega rápida', nearby: 'Zonas cercanas', otherProducts: 'Otros productos', viewAll: 'Ver catálogo' },
-    en: { from: 'From', quote: 'Free Quote', warranty: '5 year warranty', quality: 'Premium quality', delivery: 'Fast delivery', nearby: 'Nearby areas', otherProducts: 'Other products', viewAll: 'View catalog' },
-    de: { from: 'Ab', quote: 'Kostenloses Angebot', warranty: '5 Jahre Garantie', quality: 'Premium Qualität', delivery: 'Schnelle Lieferung', nearby: 'Nahe Gebiete', otherProducts: 'Andere Produkte', viewAll: 'Katalog ansehen' },
-    fr: { from: 'À partir de', quote: 'Devis Gratuit', warranty: 'Garantie 5 ans', quality: 'Qualité premium', delivery: 'Livraison rapide', nearby: 'Zones proches', otherProducts: 'Autres produits', viewAll: 'Voir catalogue' },
+    es: { from: 'Desde', quote: 'Presupuesto Gratis', warranty: '5 años garantía', quality: 'Calidad premium', delivery: 'Instalación incluida', nearby: 'Zonas cercanas', otherProducts: 'Otros productos', viewAll: 'Ver catálogo' },
+    en: { from: 'From', quote: 'Free Quote', warranty: '5 year warranty', quality: 'Premium quality', delivery: 'Installation included', nearby: 'Nearby areas', otherProducts: 'Other products', viewAll: 'View catalog' },
+    de: { from: 'Ab', quote: 'Kostenloses Angebot', warranty: '5 Jahre Garantie', quality: 'Premium Qualität', delivery: 'Installation inklusive', nearby: 'Nahe Gebiete', otherProducts: 'Andere Produkte', viewAll: 'Katalog ansehen' },
+    fr: { from: 'À partir de', quote: 'Devis Gratuit', warranty: 'Garantie 5 ans', quality: 'Qualité premium', delivery: 'Installation incluse', nearby: 'Zones proches', otherProducts: 'Autres produits', viewAll: 'Voir catalogue' },
+    it: { from: 'Da', quote: 'Preventivo Gratuito', warranty: 'Garanzia 5 anni', quality: 'Qualità premium', delivery: 'Installazione inclusa', nearby: 'Zone vicine', otherProducts: 'Altri prodotti', viewAll: 'Vedi catalogo' },
+    pt: { from: 'Desde', quote: 'Orçamento Grátis', warranty: 'Garantia 5 anos', quality: 'Qualidade premium', delivery: 'Instalação incluída', nearby: 'Zonas próximas', otherProducts: 'Outros produtos', viewAll: 'Ver catálogo' },
+    nl: { from: 'Vanaf', quote: 'Gratis Offerte', warranty: '5 jaar garantie', quality: 'Premium kwaliteit', delivery: 'Installatie inbegrepen', nearby: 'Nabijgelegen gebieden', otherProducts: 'Andere producten', viewAll: 'Bekijk catalogus' },
+    pl: { from: 'Od', quote: 'Darmowa Wycena', warranty: 'Gwarancja 5 lat', quality: 'Jakość premium', delivery: 'Instalacja w cenie', nearby: 'Pobliskie obszary', otherProducts: 'Inne produkty', viewAll: 'Zobacz katalog' },
   };
   const texts = t[validLocale] || t.es;
 
