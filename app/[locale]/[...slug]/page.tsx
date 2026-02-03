@@ -10,6 +10,7 @@ import { Footer } from "@/components/store/footer";
 import { SUPPORTED_LOCALES, type Locale } from "@/lib/seo-data";
 import { ArrowRight, MessageCircle, Check, Star } from "lucide-react";
 import { openIntercomChat } from "@/components/intercom";
+import { SEOHead, FAQSection, type SEOData } from "@/components/seo/programmatic-seo";
 
 interface PageProps {
   params: Promise<{ locale: string; slug: string[] }>;
@@ -63,6 +64,24 @@ export default function DynamicPage({ params }: PageProps) {
   
   // Related categories
   const relatedCategories = CATEGORIES.filter(c => c.slug !== category?.slug).slice(0, 3);
+
+  // SEO Data for Schema and FAQs
+  const seoData: SEOData = {
+    locale: validLocale as SEOData['locale'],
+    pageType: 'category',
+    product: catName,
+    productSlug: category?.slug || 'saunas',
+    priceMin: parseInt(catPrice.replace(/[^0-9]/g, '')) || 1200,
+    priceMax: parseInt(catPrice.replace(/[^0-9]/g, '')) * 5 || 15000,
+    brand: 'Sauna Spa',
+    domain: 'saunaspa.io',
+    warranty: '5 años',
+    relatedProducts: relatedCategories.map(c => ({
+      name: c.names[validLocale as keyof typeof c.names] || c.names.es,
+      slug: c.slug,
+      price: c.price
+    }))
+  };
   
   // Translations
   const texts: Record<string, { from: string; quote: string; features: string; related: string; warranty: string; delivery: string }> = {
@@ -208,9 +227,15 @@ export default function DynamicPage({ params }: PageProps) {
           </div>
         </section>
 
+        {/* FAQ Section with Schema */}
+        <FAQSection data={seoData} />
+
         <Features locale={validLocale} />
         <CTA locale={validLocale} />
       </main>
+
+      {/* SEO Schema Markup */}
+      <SEOHead data={seoData} />
 
       <Footer locale={validLocale} />
     </div>
