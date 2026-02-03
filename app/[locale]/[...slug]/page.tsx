@@ -1,6 +1,4 @@
-"use client";
-
-import { use } from "react";
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Header } from "@/components/store/header";
@@ -8,9 +6,9 @@ import { Features } from "@/components/store/features";
 import { CTA } from "@/components/store/cta";
 import { Footer } from "@/components/store/footer";
 import { SUPPORTED_LOCALES, type Locale } from "@/lib/seo-data";
-import { ArrowRight, MessageCircle, Check, Star } from "lucide-react";
-import { openIntercomChat } from "@/components/intercom";
+import { ArrowRight, Check, Star } from "lucide-react";
 import { SEOHead, FAQSection, type SEOData } from "@/components/seo/programmatic-seo";
+import { IntercomButton } from "@/components/pages/intercom-button";
 
 interface PageProps {
   params: Promise<{ locale: string; slug: string[] }>;
@@ -52,8 +50,47 @@ function getCategoryBySlug(slug: string) {
   return CATEGORIES.find(c => c.slug === slug || slug.includes(c.slug));
 }
 
-export default function DynamicPage({ params }: PageProps) {
-  const { locale, slug } = use(params);
+const SITE_URL = "https://saunaspa.io";
+
+// Dynamic metadata for Google SEO
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale, slug } = await params;
+  const validLocale = (SUPPORTED_LOCALES.includes(locale as Locale) ? locale : 'es') as Locale;
+  const category = getCategoryBySlug(slug?.[0] || '');
+  
+  const catName = category?.names[validLocale as keyof typeof category.names] || category?.names.es || 'Saunas y Spas';
+  const catDesc = category?.desc[validLocale as keyof typeof category.desc] || category?.desc.es || 'Saunas finlandesas, jacuzzis y spas para tu hogar.';
+  const ogImage = category?.image ? `${category.image.split('?')[0]}?w=1200&h=630&fit=crop&q=80` : 'https://images.unsplash.com/photo-1655194911126-6032bdcccc9d?w=1200&h=630&fit=crop&q=80';
+  
+  const title = `${catName} | Sauna Spa`;
+  const description = `${catDesc} Garantía 5 años, instalación profesional incluida.`;
+  const canonicalUrl = `${SITE_URL}/${locale}/${slug?.join('/') || ''}`;
+
+  return {
+    title,
+    description,
+    alternates: { canonical: canonicalUrl },
+    openGraph: {
+      title,
+      description,
+      url: canonicalUrl,
+      siteName: 'Sauna Spa',
+      locale: locale === 'es' ? 'es_ES' : locale === 'en' ? 'en_US' : `${locale}_${locale.toUpperCase()}`,
+      type: 'website',
+      images: [{ url: ogImage, width: 1200, height: 630, alt: catName }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [ogImage],
+    },
+    robots: { index: true, follow: true },
+  };
+}
+
+export default async function DynamicPage({ params }: PageProps) {
+  const { locale, slug } = await params;
   const validLocale = SUPPORTED_LOCALES.includes(locale as Locale) ? locale as Locale : 'es';
   const category = getCategoryBySlug(slug?.[0] || '');
   
@@ -121,13 +158,10 @@ export default function DynamicPage({ params }: PageProps) {
                 
                 {/* CTAs */}
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <button 
-                    onClick={() => openIntercomChat()}
-                    className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-neutral-900 text-white text-sm rounded-full hover:bg-neutral-800 transition-colors"
-                  >
-                    <MessageCircle className="w-4 h-4" />
-                    {t.quote}
-                  </button>
+                  <IntercomButton 
+                    text={t.quote}
+                    className="px-8 py-4 bg-neutral-900 text-white text-sm rounded-full hover:bg-neutral-800 transition-colors"
+                  />
                   <Link 
                     href={`/${locale}`}
                     className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-neutral-200 text-neutral-700 text-sm rounded-full hover:bg-neutral-100 transition-colors"
