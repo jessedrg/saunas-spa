@@ -17,6 +17,7 @@ import {
   type CountryCode,
 } from "@/lib/postal-data"
 import { SUPPORTED_LOCALES, type Locale } from "@/lib/seo-data"
+import { PostalSEOSchemas, PostalFAQSection, PostalBreadcrumbs, PostalPriceTable, type PostalSEOProps } from "@/components/seo/postal-seo"
 
 const LOCALE_COUNTRY: Record<string, CountryCode> = {
   es: 'ES', de: 'DE', fr: 'FR', it: 'IT', pt: 'PT', nl: 'NL', pl: 'PL'
@@ -41,6 +42,28 @@ export default function PostalCodePage({ params }: PageProps) {
   
   const catName = category.translations[validLocale as keyof typeof category.translations] || category.translations.en;
   const catImage = category.image;
+
+  // SEO Data for Sauna Spa
+  const seoData: PostalSEOProps = {
+    locale: validLocale,
+    product: catName,
+    productSlug: categoria,
+    city: postalData.name,
+    postalCode: parsed.postalCode,
+    region: postalData.region,
+    priceMin: category.priceRange.min,
+    priceMax: category.priceRange.max,
+    brand: 'Sauna Spa',
+    domain: 'saunaspa.io',
+    warranty: '5 años',
+  };
+
+  // Price table products
+  const priceProducts = PRODUCT_CATEGORIES.map(cat => ({
+    name: cat.translations[validLocale as keyof typeof cat.translations] || cat.translations.en,
+    min: cat.priceRange.min,
+    max: cat.priceRange.max,
+  }));
   
   const allCodes = getTopPostalCodes(country, 100);
   const currentIndex = allCodes.indexOf(parsed.postalCode);
@@ -86,6 +109,9 @@ export default function PostalCodePage({ params }: PageProps) {
       </header>
 
       <main className="pt-14">
+        {/* Breadcrumbs */}
+        <PostalBreadcrumbs data={seoData} />
+
         {/* Hero */}
         <section className="py-16 md:py-24 bg-white">
           <div className="max-w-6xl mx-auto px-6">
@@ -224,6 +250,9 @@ export default function PostalCodePage({ params }: PageProps) {
           </div>
         </section>
 
+        {/* Price Table */}
+        <PostalPriceTable data={seoData} products={priceProducts} />
+
         {/* Nearby Areas */}
         <section className="py-16 bg-white border-t border-neutral-100">
           <div className="max-w-6xl mx-auto px-6">
@@ -251,6 +280,9 @@ export default function PostalCodePage({ params }: PageProps) {
             </div>
           </div>
         </section>
+
+        {/* FAQ Section */}
+        <PostalFAQSection data={seoData} />
 
         {/* CTA Footer */}
         <section className="py-20 bg-neutral-900 text-white">
@@ -283,6 +315,9 @@ export default function PostalCodePage({ params }: PageProps) {
           </div>
         </div>
       </footer>
+
+      {/* SEO Schema Markup */}
+      <PostalSEOSchemas data={seoData} />
     </div>
   );
 }
