@@ -15,40 +15,85 @@ interface PageProps {
   params: Promise<{ locale: string; slug: string[] }>;
 }
 
-// Category data for saunas and spas
+// Category data for saunas and spas with localized slugs
 const CATEGORIES = [
   { 
     slug: 'saunas-finlandesas',
+    slugs: { es: 'saunas-finlandesas', en: 'finnish-saunas', de: 'finnische-saunas', fr: 'saunas-finlandais', it: 'saune-finlandesi', pt: 'saunas-finlandesas', nl: 'finse-saunas', pl: 'sauny-finskie' },
     image: 'https://images.unsplash.com/photo-1655194911126-6032bdcccc9d?q=80&w=987&auto=format&fit=crop',
     price: '2.500€',
-    names: { es: 'Saunas Finlandesas', en: 'Finnish Saunas', de: 'Finnische Saunas', fr: 'Saunas Finlandais' },
-    desc: { es: 'Saunas tradicionales de madera de alta calidad. Instalación profesional incluida.', en: 'Traditional high-quality wooden saunas. Professional installation included.', de: 'Traditionelle hochwertige Holzsaunas. Professionelle Installation inklusive.', fr: 'Saunas traditionnels en bois de haute qualité. Installation professionnelle incluse.' }
+    names: { es: 'Saunas Finlandesas', en: 'Finnish Saunas', de: 'Finnische Saunas', fr: 'Saunas Finlandais', it: 'Saune Finlandesi', pt: 'Saunas Finlandesas', nl: 'Finse Saunas', pl: 'Sauny Fińskie' },
+    desc: { 
+      es: 'Saunas tradicionales de madera de alta calidad. Instalación profesional incluida.', 
+      en: 'Traditional high-quality wooden saunas. Professional installation included.', 
+      de: 'Traditionelle hochwertige Holzsaunas. Professionelle Installation inklusive.', 
+      fr: 'Saunas traditionnels en bois de haute qualité. Installation professionnelle incluse.',
+      it: 'Saune tradizionali in legno di alta qualità. Installazione professionale inclusa.',
+      pt: 'Saunas tradicionais de madeira de alta qualidade. Instalação profissional incluída.',
+      nl: 'Traditionele houten sauna\'s van hoge kwaliteit. Professionele installatie inbegrepen.',
+      pl: 'Tradycyjne drewniane sauny wysokiej jakości. Profesjonalna instalacja w cenie.'
+    }
   },
   { 
     slug: 'jacuzzis',
-    image: 'https://images.unsplash.com/photo-1762255146530-8eca66af23b2?q=80&w=987&auto=format&fit=crop',
+    slugs: { es: 'jacuzzis', en: 'hot-tubs', de: 'whirlpools', fr: 'jacuzzis', it: 'vasche-idromassaggio', pt: 'jacuzzis', nl: 'jacuzzis', pl: 'jacuzzi' },
+    image: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=987&auto=format&fit=crop',
     price: '3.000€',
-    names: { es: 'Jacuzzis Exterior', en: 'Outdoor Hot Tubs', de: 'Außen-Whirlpools', fr: 'Jacuzzis Extérieur' },
-    desc: { es: 'Jacuzzis para jardín y terraza. Relajación total en tu hogar.', en: 'Hot tubs for garden and terrace. Total relaxation at home.', de: 'Whirlpools für Garten und Terrasse. Totale Entspannung zu Hause.', fr: 'Jacuzzis pour jardin et terrasse. Relaxation totale chez vous.' }
+    names: { es: 'Jacuzzis Exterior', en: 'Outdoor Hot Tubs', de: 'Außen-Whirlpools', fr: 'Jacuzzis Extérieur', it: 'Vasche Idromassaggio', pt: 'Jacuzzis Exterior', nl: 'Buiten Jacuzzis', pl: 'Jacuzzi Zewnętrzne' },
+    desc: { 
+      es: 'Jacuzzis para jardín y terraza. Relajación total en tu hogar.', 
+      en: 'Hot tubs for garden and terrace. Total relaxation at home.', 
+      de: 'Whirlpools für Garten und Terrasse. Totale Entspannung zu Hause.', 
+      fr: 'Jacuzzis pour jardin et terrasse. Relaxation totale chez vous.',
+      it: 'Vasche idromassaggio per giardino e terrazza. Relax totale a casa tua.',
+      pt: 'Jacuzzis para jardim e terraço. Relaxamento total em sua casa.',
+      nl: 'Jacuzzi\'s voor tuin en terras. Totale ontspanning thuis.',
+      pl: 'Jacuzzi do ogrodu i tarasu. Całkowity relaks w domu.'
+    }
   },
   { 
     slug: 'spas',
+    slugs: { es: 'spas', en: 'spas', de: 'spas', fr: 'spas', it: 'spa', pt: 'spas', nl: 'spas', pl: 'spa' },
     image: 'https://img.edilportale.com/product-thumbs/b_Jacuzzi_J-475_XugmIfCBJW.jpeg',
     price: '1.500€',
-    names: { es: 'Spas & Hidromasaje', en: 'Spas & Whirlpools', de: 'Spas & Whirlpools', fr: 'Spas & Balnéo' },
-    desc: { es: 'Bañeras de hidromasaje para interior. Bienestar y relajación.', en: 'Indoor whirlpool baths. Wellness and relaxation.', de: 'Whirlpool-Badewannen für den Innenbereich. Wellness und Entspannung.', fr: 'Baignoires balnéo pour intérieur. Bien-être et relaxation.' }
+    names: { es: 'Spas & Hidromasaje', en: 'Spas & Whirlpools', de: 'Spas & Whirlpools', fr: 'Spas & Balnéo', it: 'Spa & Idromassaggio', pt: 'Spas & Hidromassagem', nl: 'Spas & Whirlpools', pl: 'Spa & Hydromasaż' },
+    desc: { 
+      es: 'Bañeras de hidromasaje para interior. Bienestar y relajación.', 
+      en: 'Indoor whirlpool baths. Wellness and relaxation.', 
+      de: 'Whirlpool-Badewannen für den Innenbereich. Wellness und Entspannung.', 
+      fr: 'Baignoires balnéo pour intérieur. Bien-être et relaxation.',
+      it: 'Vasche idromassaggio per interni. Benessere e relax.',
+      pt: 'Banheiras de hidromassagem para interior. Bem-estar e relaxamento.',
+      nl: 'Whirlpoolbaden voor binnen. Wellness en ontspanning.',
+      pl: 'Wanny z hydromasażem do wnętrz. Wellness i relaks.'
+    }
   },
   { 
     slug: 'infrarrojos',
+    slugs: { es: 'infrarrojos', en: 'infrared-cabins', de: 'infrarotkabinen', fr: 'cabines-infrarouges', it: 'cabine-infrarossi', pt: 'cabines-infravermelhos', nl: 'infrarood-cabines', pl: 'kabiny-na-podczerwien' },
     image: 'https://aurorahomeluxury.co.uk/cdn/shop/files/insignia-outdoor-hybrid-infrared-sauna-1700-x-1500mm-gardensetting_1200x1200_crop_center.jpg?v=1726583291',
     price: '1.200€',
-    names: { es: 'Cabinas Infrarrojos', en: 'Infrared Cabins', de: 'Infrarotkabinen', fr: 'Cabines Infrarouges' },
-    desc: { es: 'Cabinas de terapia infrarroja. Beneficios para la salud.', en: 'Infrared therapy cabins. Health benefits.', de: 'Infrarot-Therapiekabinen. Gesundheitsvorteile.', fr: 'Cabines de thérapie infrarouge. Bienfaits pour la santé.' }
+    names: { es: 'Cabinas Infrarrojos', en: 'Infrared Cabins', de: 'Infrarotkabinen', fr: 'Cabines Infrarouges', it: 'Cabine Infrarossi', pt: 'Cabines Infravermelhos', nl: 'Infrarood Cabines', pl: 'Kabiny na Podczerwień' },
+    desc: { 
+      es: 'Cabinas de terapia infrarroja. Beneficios para la salud.', 
+      en: 'Infrared therapy cabins. Health benefits.', 
+      de: 'Infrarot-Therapiekabinen. Gesundheitsvorteile.', 
+      fr: 'Cabines de thérapie infrarouge. Bienfaits pour la santé.',
+      it: 'Cabine per terapia a infrarossi. Benefici per la salute.',
+      pt: 'Cabines de terapia infravermelha. Benefícios para a saúde.',
+      nl: 'Infrarood therapiecabines. Gezondheidsvoordelen.',
+      pl: 'Kabiny do terapii na podczerwień. Korzyści zdrowotne.'
+    }
   },
 ];
 
+// Find category by any localized slug
 function getCategoryBySlug(slug: string) {
-  return CATEGORIES.find(c => c.slug === slug || slug.includes(c.slug));
+  return CATEGORIES.find(c => {
+    if (c.slug === slug) return true;
+    const allSlugs = Object.values(c.slugs);
+    return allSlugs.includes(slug) || allSlugs.some(s => slug.includes(s));
+  });
 }
 
 const SITE_URL = "https://saunaspa.io";
@@ -122,11 +167,15 @@ export default async function DynamicPage({ params }: PageProps) {
   };
   
   // Translations
-  const texts: Record<string, { from: string; quote: string; features: string; related: string; warranty: string; delivery: string }> = {
-    es: { from: 'Desde', quote: 'Solicitar Presupuesto', features: 'Características', related: 'Otros productos', warranty: 'Garantía 5 años', delivery: 'Entrega rápida' },
-    en: { from: 'From', quote: 'Request Quote', features: 'Features', related: 'Other products', warranty: '5 year warranty', delivery: 'Fast delivery' },
-    de: { from: 'Ab', quote: 'Angebot Anfordern', features: 'Eigenschaften', related: 'Andere Produkte', warranty: '5 Jahre Garantie', delivery: 'Schnelle Lieferung' },
-    fr: { from: 'À partir de', quote: 'Demander un Devis', features: 'Caractéristiques', related: 'Autres produits', warranty: 'Garantie 5 ans', delivery: 'Livraison rapide' },
+  const texts: Record<string, { from: string; quote: string; features: string; related: string; warranty: string; delivery: string; catalog: string; quality: string }> = {
+    es: { from: 'Desde', quote: 'Solicitar Presupuesto', features: 'Características', related: 'Otros productos', warranty: 'Garantía 5 años', delivery: 'Instalación incluida', catalog: 'Ver Catálogo', quality: 'Calidad Premium' },
+    en: { from: 'From', quote: 'Request Quote', features: 'Features', related: 'Other products', warranty: '5 year warranty', delivery: 'Installation included', catalog: 'View Catalog', quality: 'Premium Quality' },
+    de: { from: 'Ab', quote: 'Angebot Anfordern', features: 'Eigenschaften', related: 'Andere Produkte', warranty: '5 Jahre Garantie', delivery: 'Installation inklusive', catalog: 'Katalog Ansehen', quality: 'Premium Qualität' },
+    fr: { from: 'À partir de', quote: 'Demander un Devis', features: 'Caractéristiques', related: 'Autres produits', warranty: 'Garantie 5 ans', delivery: 'Installation incluse', catalog: 'Voir Catalogue', quality: 'Qualité Premium' },
+    it: { from: 'Da', quote: 'Richiedi Preventivo', features: 'Caratteristiche', related: 'Altri prodotti', warranty: 'Garanzia 5 anni', delivery: 'Installazione inclusa', catalog: 'Vedi Catalogo', quality: 'Qualità Premium' },
+    pt: { from: 'Desde', quote: 'Solicitar Orçamento', features: 'Características', related: 'Outros produtos', warranty: 'Garantia 5 anos', delivery: 'Instalação incluída', catalog: 'Ver Catálogo', quality: 'Qualidade Premium' },
+    nl: { from: 'Vanaf', quote: 'Offerte Aanvragen', features: 'Kenmerken', related: 'Andere producten', warranty: '5 jaar garantie', delivery: 'Installatie inbegrepen', catalog: 'Bekijk Catalogus', quality: 'Premium Kwaliteit' },
+    pl: { from: 'Od', quote: 'Poproś o Wycenę', features: 'Cechy', related: 'Inne produkty', warranty: 'Gwarancja 5 lat', delivery: 'Instalacja w cenie', catalog: 'Zobacz Katalog', quality: 'Jakość Premium' },
   };
   const t = texts[validLocale] || texts.es;
 
@@ -167,7 +216,7 @@ export default async function DynamicPage({ params }: PageProps) {
                     href={`/${locale}`}
                     className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-neutral-200 text-neutral-700 text-sm rounded-full hover:bg-neutral-100 transition-colors"
                   >
-                    Ver Catálogo
+                    {t.catalog}
                     <ArrowRight className="w-4 h-4" />
                   </Link>
                 </div>
